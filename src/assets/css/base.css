@@ -3,25 +3,12 @@
   padding:0px;
 }
 
-html {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-html :hover{
-  overflow-y: auto;
-}
-
 body {
   font-family: Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
-  width: 100%;
   height: 100%;
-  margin:0px;
-  padding:0px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-
 
 a{
   text-decoration: none;
