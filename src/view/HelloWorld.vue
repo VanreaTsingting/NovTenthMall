@@ -3,32 +3,28 @@
 
     <!--1. header-->
     <div class="header">
-      <div style="padding-left: 100px; padding-right: 60px;" >
+      <div style="padding-left: 300px; padding-right: 320px;" >
         <div v-for="(item, index) in tab_list">
           <a style="float: left;color: #333333" href="" v-if="index==0">
-            <img style="width:134px;height:126px;"
+            <img style="width:120px;height:116px;"
                  src="http://www.gemmy.com.cn/ZH_CN/images/logo.png"></a>
           <a style="float: right;padding-top: 15px;color: #333333" href="" v-if="index!=0&&index!=1">{{ item.name }} |</a>
           <a style="float: right;padding-top: 15px;color: #333333" href="" v-if="index==1">{{ item.name }}</a>
         </div>
       </div><br/>
-
-
     </div>
 
     <!--1. header-->
-    <div style="margin-top: 60px;">
+    <div style="margin-top: 55px;">
       <div style="background-color: #094;">
         <div style="padding: 10px 80px 10px 80px;text-align: center;" >
           <div style="display: inline-block;margin-right: 10px;" v-for="(item, index) in tab_list">
-            <a style="margin-right: 60px" href="" v-if="index==0">{{ item.name }}</a>
-            <a href="" v-if="index!=0&&index!=1">{{ item.name }} |</a>
-            <a href="" v-if="index==1">{{ item.name }}</a>
+            <a style="margin-right: 60px;color: #fff" href="" v-if="index==0">{{ item.name }}</a>
+            <a style="color: #8ed399" href="" v-if="index!=0&&index!=1">{{ item.name }} |</a>
+            <a style="color: #8ed399" href="" v-if="index==1">{{ item.name }}</a>
           </div>
         </div>
       </div>
-
-
     </div>
 
 
