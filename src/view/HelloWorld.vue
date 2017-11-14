@@ -1,12 +1,12 @@
 <template>
   <div class="container" style="background-color: rgb(235,232,232)">
 
-    <!--1. header-->
+    <!--1. barner-->
     <div class="header">
-      <div style="padding-left: 300px; padding-right: 320px;" >
+      <div style="padding-left: 300px; padding-right: 260px;" >
         <div v-for="(item, index) in tab_list">
-          <a style="float: left;color: #333333" href="" v-if="index==0">
-            <img style="width:120px;height:116px;"
+          <a style="float: left;color: #333333" v-if="index==0">
+            <img style="width:132px;height:124px;"
                  src="http://www.gemmy.com.cn/ZH_CN/images/logo.png"></a>
           <a style="float: right;padding-top: 15px;color: #333333" href="" v-if="index!=0&&index!=1">{{ item.name }} |</a>
           <a style="float: right;padding-top: 15px;color: #333333" href="" v-if="index==1">{{ item.name }}</a>
@@ -14,8 +14,8 @@
       </div><br/>
     </div>
 
-    <!--1. header-->
-    <div style="margin-top: 55px;">
+    <!--2. header-->
+    <div style="margin-top: 65px;">
       <div style="background-color: #094;">
         <div style="padding: 10px 80px 10px 80px;text-align: center;" >
           <div style="display: inline-block;margin-right: 10px;" v-for="(item, index) in tab_list">
@@ -27,18 +27,22 @@
       </div>
     </div>
 
+	<div style="margin: 0 auto;clear:both;width: 120px;height: 160px;background-color: #888888"></div>
+
 
 
     <div>
-      <!--2. left-->
-      <div class="left">
-        <div>1导航</div>
-        <div>2导航</div>
-        <div>3导航</div>
-        <div>4导航</div>
+      <!--3. left-->
+      <div class="left" style="text-align: center;">
+        <div style="background: #384a83" v-for="(tabItem, tabIndex) in tabItems" v-on:click="tabEnter(tabIndex)">
+          {{tabItem.tabName}}<br/>
+          <div v-show="tabIndex==selectTab" style="border-bottom: 0px;border-top: solid #ff0000;">
+            <a v-for="sTabItem in tabItem.tabList" style="display: block">{{sTabItem}}</a>
+          </div>
+        </div>
       </div>
 
-      <!--3. right-->
+      <!--4. right-->
       <div class="right">
         <div>sss</div>
         <div>test</div>
@@ -50,19 +54,11 @@
         <div>test</div>
         <div>sss</div>
         <div>test</div>
-        <div>test</div>
-        <div>test</div>
-        <div>sss</div>
-        <div>test</div>
-        <div>test</div>
-        <div>test</div>
-        <div>sss</div>
-        <div>test</div>
-        <div>test</div>
-        <div>test</div>
       </div>
+
+	  <div style="clear:both;width: 120px;height: 160px;background-color: #888888"></div>
     </div>
-    <div></div>
+
 
   </div>
 </template>
@@ -85,6 +81,17 @@ export default {
         {name: '走进xxx', tab_flag: false},
         {name: '首页', tab_flag: false}
       ],
+      tabItems: [
+        { tabName: 'tab_0', tabList: ['tab_0_0', 'tab_0_1', 'tab_0_2', 'tab_0_3'] },
+        { tabName: 'tab_1', tabList: ['tab_1_0', 'tab_1_1', 'tab_1_2', 'tab_1_3'] },
+        { tabName: 'tab_2', tabList: ['tab_2_0', 'tab_2_1', 'tab_2_2', 'tab_2_3'] },
+        { tabName: 'tab_0', tabList: ['tab_0_0', 'tab_0_1', 'tab_0_2', 'tab_0_3'] },
+        { tabName: 'tab_1', tabList: ['tab_1_0', 'tab_1_1', 'tab_1_2', 'tab_1_3'] },
+        { tabName: 'tab_2', tabList: ['tab_2_0', 'tab_2_1', 'tab_2_2', 'tab_2_3'] },
+        { tabName: 'tab_3', tabList: ['tab_3_0', 'tab_3_1', 'tab_3_2', 'tab_3_3'] }
+      ],
+      selectTab: -1,
+      sibarShow: false,
       showFlag: false
     }
   },
@@ -92,13 +99,26 @@ export default {
     tabbtnclick (item) {
       console.log('Tab Click：' + item.name)
     },
-    tabLeave () {
+    divLeave () {
       console.log('tabLeave')
+      this.sibarShow = false
 //      this.showFlag = false
     },
-    tabEnter (item) {
+    divEnter (item) {
       console.log('tabEnter' + item.name)
+      this.sibarShow = true
 //      this.showFlag = true
+    },
+    tabEnter (tabItem) {
+      if (this.selectTab === tabItem) {
+        this.selectTab = -1
+      } else {
+        this.selectTab = tabItem
+      }
+      console.log('This is ' + tabItem)
+    },
+    tabLeave () {
+      this.selectTab = -1
     }
   }
 }
