@@ -4,9 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import store from './component/store/dhsq-storage'
 
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
+Vue.use(store)
 
 /* eslint-disable no-new */
 new Vue({
