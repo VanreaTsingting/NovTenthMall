@@ -1,2 +1,2 @@
 # NovTenthMall
-xx电商项目，pc端，尚未使用bootstrap匹配移动端设备
+练手小米/锤子商城，pc端项目，尚未使用bootstrap匹配移动端设备
